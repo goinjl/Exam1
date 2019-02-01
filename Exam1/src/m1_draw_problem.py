@@ -95,8 +95,21 @@ def test_draw_a_picture():
 #
 
 def draw_a_picture(point, n, color, window):
+    circle = rg.Circle(point, 50)
+    circle.attach_to(window)
+    circle.fill_color = color
+    window.render(0.5)
+    x = circle.center.x + 25
+    y = circle.center.y + 15
+    for k in range(n):
+        newcircle = rg.Circle(rg.Point(x, y), circle.radius)
+        newcircle.fill_color = circle.fill_color
+        x = x + 25
+        y = y + 15
+        newcircle.attach_to(window)
+        window.render(0.5)
+
 
     return
-
 
 main()
